@@ -1,0 +1,34 @@
+<div class="row m-2">
+    <div class="card card-body">
+        <h1 class="card-header text-center mb-3">Create Post</h1>
+        <form action="/admin/posts/create" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" name="title" required id="title" value="{{title}}" placeholder="Enter title" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="file">Image</label>
+                <input type="file" name="file" id="file" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select name="status" id="status" class="form-control">
+                    <option value="public">Public</option>
+                    <option value="private">Private</option>
+                    <option value="draft">Draft</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="allowComments" class="form-check-label">
+                    <input type="checkbox" name="allowComments" id="allowComments" class="form-check-input">
+                    Allow Comments
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="body">Body</label>
+                <textarea name="body" required id="editor" class="form-control" placeholder="Enter description" cols="30" rows="10">{{body}}</textarea>
+            </div>
+            <button type="submit" class="btn btn-block btn-lg btn-primary">Create Post</button>
+        </form>
+    </div>
+</div>

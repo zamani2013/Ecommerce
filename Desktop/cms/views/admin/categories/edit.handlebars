@@ -1,0 +1,12 @@
+<div class="container row mt-2">
+    <div class="card card-body">
+        <h1 class="text-center card-header">Edit Category</h1>
+        <form action="/admin/categories/edit/{{categories._id}}?_method=PUT" method="post">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" value="{{categories.title}}" name="title" id="title" class="form-control" placeholder="Enter title">
+            </div>
+            <button type="submit" class="btn btn-block btn-info">Submit</button>
+        </form>
+    </div>
+</div>    

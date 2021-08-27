@@ -1,0 +1,32 @@
+<div class="container row m-2">
+    <div class="card card-body">
+        <h1 class="card-header text-center">Edit Post</h1>
+        <form action="/admin/posts/edit/{{posts._id}}?_method=PUT" method="post">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" required name="title" id="title" value="{{posts.title}}" placeholder="Enter title" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select name="status" id="status" class="form-control">
+                    {{#select posts.status}}
+                    <option value="public">Public</option>
+                    <option value="private">Private</option>
+                    <option value="draft">Draft</option>
+                    {{/select}}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="allowComments" class="form-check-label">
+                    <input type="checkbox"{{#if posts.allowComments}}checked="checked"{{/if}} name="allowComments" id="allowComments" class="form-check-input">
+                    Allow Comments
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="body">Body</label>
+                <textarea name="body" required id="editor" class="form-control" placeholder="Enter description" cols="30" rows="10">{{posts.body}}</textarea>
+            </div>
+            <button type="submit" class="btn btn-block btn-lg btn-info">Edit Post</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="row m-2">
+    <div class="card card-body">
+        <h1 class="card-header text-center mb-3">All Post</h1> 
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Image</th>
+                    <th>Status</th>
+                    <th>AllowComments</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each posts}}
+                <tr>
+                    <td>{{title}}</td>
+                    <td><img height="60" class="rounded" src="/uploads/{{file}}" alt=""></td>
+                    <td>{{status}}</td>
+                    <td>{{allowComments}}</td>
+                    <td>{{generateDate date 'Do MMM YYYY'}}</td>
+                    <td><a href="/admin/posts/edit/{{_id}}" class="btn btn-info">Edit</a></td>
+                    <td>
+                        <form action="/admin/posts/delete/{{_id}}?_method=DELETE" method="post">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
